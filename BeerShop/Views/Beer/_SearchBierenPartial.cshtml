@@ -1,0 +1,48 @@
+﻿@model IEnumerable<BeerShop.ViewModels.BeerVM>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Naam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brouwernaam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Soortnaam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alcohol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Naam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brouwernaam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Soortnaam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alcohol)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

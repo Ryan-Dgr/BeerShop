@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\BeerShop.Domains\\DataDB",
+    "\\BeerShop.Repositories\\Interfaces",
+    "\\BeerShop.Services\\Interfaces",
+    "\\BeerShop\\ViewModels",
+    "\\BeerShop\\Views",
+    "\\BeerShop\\Views\\Beer",
+    "\\BeerShop\\Views\\Shared"
+  ],
+  "SelectedNode": "\\BeerShop.sln",
+  "PreviewInSolutionExplorer": false
+}

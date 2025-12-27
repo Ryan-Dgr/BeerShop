@@ -9,6 +9,8 @@ namespace BeerShop.AutoMapper
         public AutoMapperProfile()
         {
             CreateMap<Beer, BeerVM>()
+                .ForMember(dest => dest.Biernr,
+                opt => opt.MapFrom(src => src.Biernr))
                 .ForMember(dest => dest.Brouwernaam,
                 opt => opt.MapFrom(
                     src => src.BrouwernrNavigation != null
@@ -18,8 +20,10 @@ namespace BeerShop.AutoMapper
                     src => src.SoortnrNavigation != null
                     ? src.SoortnrNavigation.Soortnaam : string.Empty));
             CreateMap<Brewery, BreweryVM>();
-            CreateMap<Beer, BeerBaseCRUD>();
-            CreateMap<BeerBaseCRUD, Beer>();
+            
+            //edit
+            CreateMap<Beer, BeerEditVM>();
+            CreateMap<BeerEditVM, Beer>();
         }
     }
 }

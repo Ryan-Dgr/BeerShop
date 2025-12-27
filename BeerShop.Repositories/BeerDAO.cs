@@ -32,14 +32,19 @@ namespace BeerShop.Repositories
             }
         }
 
-        public Task DeleteAsync(Beer entity)
+        public async Task DeleteAsync(Beer entity)
         {
-            throw new NotImplementedException();
+
+            _context.Beers.Remove(entity);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<Beer?> FindByIdAsync(int Id)
+        public async Task<Beer?> FindByIdAsync(int Id)
         {
-            throw new NotImplementedException();
+            return await _context.Beers
+                .Include(b => b.BrouwernrNavigation)
+                .Include(b => b.SoortnrNavigation)
+                .FirstOrDefaultAsync(b => b.Biernr == Id);
         }
 
         public async Task<IEnumerable<Beer>?> GetAllAsync()
@@ -80,9 +85,17 @@ namespace BeerShop.Repositories
             }
         }
 
-        public Task UpdateAsync(Beer entity)
+        public async Task UpdateAsync(Beer entity)
         {
-            throw new NotImplementedException();
+            _context.Entry(entity).State = EntityState.Modified;
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
     }
 }

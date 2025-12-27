@@ -32,3 +32,4 @@ C:\vivesC\full stack\BeerShop\BeerShop.Services\obj\Debug\net9.0\BeerShop.Servic
 C:\vivesC\full stack\BeerShop\BeerShop.Services\obj\Debug\net9.0\refint\BeerShop.Services.dll
 C:\vivesC\full stack\BeerShop\BeerShop.Services\obj\Debug\net9.0\BeerShop.Services.pdb
 C:\vivesC\full stack\BeerShop\BeerShop.Services\obj\Debug\net9.0\ref\BeerShop.Services.dll
+C:\vivesC\full stack\BeerShop\BeerShop.Services\obj\Debug\net9.0\BeerShop.Services.sourcelink.json

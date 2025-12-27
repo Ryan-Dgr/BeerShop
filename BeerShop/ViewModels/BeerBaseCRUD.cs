@@ -5,6 +5,7 @@ namespace BeerShop.ViewModels
 {
     public class BeerBaseCRUD
     {
+
         [Required]
         public string? Naam { get; set; }
 

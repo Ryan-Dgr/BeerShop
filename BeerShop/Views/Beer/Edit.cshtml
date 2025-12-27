@@ -1,0 +1,61 @@
+﻿@model BeerShop.ViewModels.BeerEditVM
+
+@{
+    ViewData["Title"] = "Beer bewerken";
+}
+
+<h2>Beer bewerken</h2>
+<hr />
+
+<form asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" asp-for="Biernr" />
+
+    <div class="mb-3">
+        <label asp-for="Naam" class="form-label"></label>
+        <input asp-for="Naam" class="form-control" />
+        <span asp-validation-for="Naam" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Alcohol" class="form-label"></label>
+        <input asp-for="Alcohol" class="form-control" />
+        <span asp-validation-for="Alcohol" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Brouwernr" class="form-label"></label>
+        <select asp-for="Brouwernr"
+                asp-items="Model.Breweries"
+                class="form-select">
+            <option value="">-- kies brouwer --</option>
+        </select>
+        <span asp-validation-for="Brouwernr" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Soortnr" class="form-label"></label>
+        <select asp-for="Soortnr"
+                asp-items="Model.Varieties"
+                class="form-select">
+            <option value="">-- kies soort --</option>
+        </select>
+        <span asp-validation-for="Soortnr" class="text-danger"></span>
+    </div>
+
+    <div class="mt-4">
+        <button type="submit" class="btn btn-primary">
+            Opslaan
+        </button>
+        <a asp-action="Index" class="btn btn-secondary ms-2">
+            Annuleren
+        </a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

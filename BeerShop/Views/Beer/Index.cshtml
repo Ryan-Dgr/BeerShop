@@ -60,11 +60,12 @@ else
             <td>
                 @Html.DisplayFor(modelItem => item.Image)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Biernr }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Biernr }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Biernr })
+                    </td>
+
         </tr>
     }
 }

@@ -32,3 +32,4 @@ C:\vivesC\full stack\BeerShop\BeerShop.Repositories\obj\Debug\net9.0\refint\Beer
 C:\vivesC\full stack\BeerShop\BeerShop.Repositories\obj\Debug\net9.0\BeerShop.Repositories.pdb
 C:\vivesC\full stack\BeerShop\BeerShop.Repositories\obj\Debug\net9.0\BeerShop.Repositories.genruntimeconfig.cache
 C:\vivesC\full stack\BeerShop\BeerShop.Repositories\obj\Debug\net9.0\ref\BeerShop.Repositories.dll
+C:\vivesC\full stack\BeerShop\BeerShop.Repositories\obj\Debug\net9.0\BeerShop.Repositories.sourcelink.json

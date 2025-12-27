@@ -259,5 +259,100 @@ namespace BeerShop.Controllers
             }
             return View(model);
         }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var beer = await _beerService.FindByIdAsync(id);
+            if (beer == null)
+            {
+                return NotFound();
+            }
+            var model = _mapper.Map<BeerEditVM>(beer);
+            model.Breweries = new SelectList(await _breweryService.GetAllAsync(),
+                "Brouwernr", "Naam", model.Brouwernr);
+            model.Varieties = new SelectList(await _varietyService.GetAllAsync(),
+                "Soortnr", "Soortnaam", model.Soortnr);
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, BeerEditVM model)
+        {
+            if (id != model.Biernr)
+            {
+                return NotFound();
+            }
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var beer = _mapper.Map<Beer>(model);
+                    await _beerService.UpdateAsync(beer);
+                    return RedirectToAction(nameof(Index));
+                }
+
+                // dropdowns opnieuw vullen bij fout
+                model.Breweries = new SelectList(
+                    await _breweryService.GetAllAsync(),
+                    "Brouwernr",
+                    "Naam",
+                    model.Brouwernr);
+
+                model.Varieties = new SelectList(
+                    await _varietyService.GetAllAsync(),
+                    "Soortnr",
+                    "Soortnaam",
+                    model.Soortnr);
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                //iets
+                throw;
+
+            }
+
+        }
+
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var beer = await _beerService.FindByIdAsync(id);
+            if (beer == null)
+            {
+                return NotFound();
+            }
+            var model = _mapper.Map<BeerVM>(beer);
+            return View(model);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var beer = await _beerService.FindByIdAsync(id);
+            if (beer == null)
+            {
+                return NotFound();
+            }
+
+            await _beerService.DeleteAsync(beer);
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Details(int id)
+        {
+            var beer = await _beerService.FindByIdAsync(id);
+            if (beer == null)
+            {
+                return NotFound();
+            }
+            var model = _mapper.Map<BeerVM>(beer);
+            return View(model);
+        }
+        
+        
+
     }
 }

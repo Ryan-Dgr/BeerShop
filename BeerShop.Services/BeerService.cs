@@ -21,14 +21,14 @@ namespace BeerShop.Services
             await _beerDAO.AddAsync(entity);
         }
 
-        public Task DeleteAsync(Beer entity)
+        public async Task DeleteAsync(Beer entity)
         {
-            throw new NotImplementedException();
+            await _beerDAO.DeleteAsync(entity);
         }
 
-        public Task<Beer?> FindByIdAsync(int Id)
+        public async Task<Beer?> FindByIdAsync(int Id)
         {
-            throw new NotImplementedException();
+            return await _beerDAO.FindByIdAsync(Id);
         }
 
         public async Task<IEnumerable<Beer>?> GetAllAsync()
@@ -46,9 +46,9 @@ namespace BeerShop.Services
             return await _beerDAO.GetBeersByBreweries(brouwerID);
         }
 
-        public Task UpdateAsync(Beer entity)
+        public async Task UpdateAsync(Beer entity)
         {
-            throw new NotImplementedException();
+           await _beerDAO.UpdateAsync(entity);
         }
     }
 }
